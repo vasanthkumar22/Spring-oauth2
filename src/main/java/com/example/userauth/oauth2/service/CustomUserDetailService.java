@@ -22,11 +22,12 @@ public class CustomUserDetailService implements UserDetailsService {
     private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(s);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        User user = userRepository.findByUsername(username);
 
         if(user == null){
-            throw new UsernameNotFoundException("No user found with username" + s);
+            throw new UsernameNotFoundException("No user found with username" + username);
         }
 
         Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();
