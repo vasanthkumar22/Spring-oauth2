@@ -21,12 +21,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .frameOptions()
                 .disable()
                 .and()
-                .logout()
-                .logoutUrl("/oauth/logout")
-                .logoutSuccessHandler(customLogoutSuccessHandler)
-                .and()
+//                .logout()
+//                .logoutUrl("/oauth/logout")
+//                .logoutSuccessHandler(customLogoutSuccessHandler)
+//                .and()
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .anyRequest().authenticated();
+                .antMatchers("/users/").authenticated()
+                .antMatchers("/private").permitAll()
+                .anyRequest().permitAll();
     }
 }
