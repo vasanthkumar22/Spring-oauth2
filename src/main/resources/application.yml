@@ -12,3 +12,12 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
+
+server:
+  port: 8443
+  ssl:
+    key-store:  classpath:mykeystore.p12
+    key-password: password
+    key-store-password: password
+    key-store-type: PKCS12 # optional
+    key-alias:  tomcat # optional
